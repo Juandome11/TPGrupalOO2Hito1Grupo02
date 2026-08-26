@@ -7,9 +7,9 @@
 | Nombre y Apellido | Usuario GitHub |
 |---|---|
 | Juan Domenighetti | Juandome11 |
-| Mariano Augusto | Ribe |
-| Nahuel | Portel |
-| Richart | Chaves |
+| Mariano Augusto Ribe| MarioArcade |
+| Nahuel Portel| nahuelp22 |
+| Richart Chaves| richarttttt |
 
 ## Hito 1: Hibernate
 
