@@ -9,9 +9,9 @@ public class Cajero extends Staff {
 
 	public Cajero() {}
 
-	public Cajero(String nombre, String apellido, String dni, int edad, LocalDate fechaNacimiento,
+	public Cajero(String nombre, String apellido, String dni, LocalDate fechaNacimiento,
 			LocalDate fechaIngreso, long sueldoBase, String turno, int numeroCaja) {
-		super(nombre, apellido, dni, edad, fechaNacimiento, fechaIngreso, sueldoBase);
+		super(nombre, apellido, dni, fechaNacimiento, fechaIngreso, sueldoBase);
 		this.turno = turno;
 		this.numeroCaja = numeroCaja;
 	}

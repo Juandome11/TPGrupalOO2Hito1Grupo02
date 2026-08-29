@@ -6,14 +6,15 @@ public class Cocinero extends Staff {
 
 	private String especialidad;
 	private String certificado;
+	private int bonus;
 
 	public Cocinero() {}
 
-	public Cocinero(String nombre, String apellido, String dni, int edad, LocalDate fechaNacimiento,
-			LocalDate fechaIngreso, long sueldoBase, String especialidad, String certificado) {
-		super(nombre, apellido, dni, edad, fechaNacimiento, fechaIngreso, sueldoBase);
+	public Cocinero(String nombre, String apellido, String dni, LocalDate fechaNacimiento,
+			LocalDate fechaIngreso, long sueldoBase, String especialidad, String certificado, int bonus) {
+		super(nombre, apellido, dni, fechaNacimiento, fechaIngreso, sueldoBase);
 		this.especialidad = especialidad;
-		this.certificado = certificado;
+		this.bonus = bonus;
 	}
 
 	public String getEspecialidad() {
@@ -31,10 +32,21 @@ public class Cocinero extends Staff {
 	public void setCertificado(String certificado) {
 		this.certificado = certificado;
 	}
+	
+	
+
+	public int getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(int bonus) {
+		this.bonus = bonus;
+	}
 
 	@Override
 	public String toString() {
-		return "Cocinero [" + super.toString() + ", especialidad=" + especialidad + ", certificado=" + certificado
-				+ "]";
+		return "Cocinero [especialidad=" + especialidad + ", certificado=" + certificado + ", bonus=" + bonus + "]";
 	}
+
+	
 }

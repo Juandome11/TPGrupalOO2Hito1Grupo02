@@ -1,6 +1,7 @@
 package datos;
 
-import java.util.List;
+
+import java.util.Set;
 
 public class Plato {
 
@@ -8,7 +9,7 @@ public class Plato {
 	private String nombre;
 	private long precio;
 	private long costoProd;
-	private List<DetallePedido> detalles;
+	private Set<DetallePedido> detalles;
 
 	public Plato() {}
 
@@ -50,11 +51,13 @@ public class Plato {
 		this.costoProd = costoProd;
 	}
 
-	public List<DetallePedido> getDetalles() {
+
+
+	public Set<DetallePedido> getDetalles() {
 		return detalles;
 	}
 
-	public void setDetalles(List<DetallePedido> detalles) {
+	public void setDetalles(Set<DetallePedido> detalles) {
 		this.detalles = detalles;
 	}
 

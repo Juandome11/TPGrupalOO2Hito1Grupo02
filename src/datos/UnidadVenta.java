@@ -1,6 +1,7 @@
 package datos;
 
-import java.util.List;
+
+import java.util.Set;
 
 public abstract class UnidadVenta {
 
@@ -10,8 +11,8 @@ public abstract class UnidadVenta {
 	protected Staff responsableCargo;
 	protected long superficie;
 	protected String codigo;
-	protected List<Staff> staff;
-	protected List<Plato> platos;
+	protected Set<Staff> staff;
+	protected Set<Plato> platos;
 
 	public UnidadVenta() {}
 
@@ -71,19 +72,20 @@ public abstract class UnidadVenta {
 		this.codigo = codigo;
 	}
 
-	public List<Staff> getStaff() {
+
+	public Set<Staff> getStaff() {
 		return staff;
 	}
 
-	public void setStaff(List<Staff> staff) {
+	public void setStaff(Set<Staff> staff) {
 		this.staff = staff;
 	}
 
-	public List<Plato> getPlatos() {
+	public Set<Plato> getPlatos() {
 		return platos;
 	}
 
-	public void setPlatos(List<Plato> platos) {
+	public void setPlatos(Set<Plato> platos) {
 		this.platos = platos;
 	}
 
