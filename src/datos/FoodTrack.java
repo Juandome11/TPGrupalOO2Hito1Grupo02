@@ -6,11 +6,15 @@ public class FoodTrack extends UnidadVenta {
 
 	public FoodTrack() {}
 
-	public FoodTrack(String nombre, String lugar, Staff responsableCargo, long superficie, String codigo,
-			String patente) {
-		super(nombre, lugar, responsableCargo, superficie, codigo);
+	
+
+	public FoodTrack(String nombre, String lugar, long superficie, Staff encargado, String codigo, Festival festival,String patente) {
+		
+		super(nombre, lugar, superficie, encargado, codigo, festival);
 		this.patente = patente;
 	}
+
+
 
 	public String getPatente() {
 		return patente;
@@ -19,7 +23,8 @@ public class FoodTrack extends UnidadVenta {
 	public void setPatente(String patente) {
 		this.patente = patente;
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "FoodTrack [" + super.toString() + ", patente=" + patente + "]";

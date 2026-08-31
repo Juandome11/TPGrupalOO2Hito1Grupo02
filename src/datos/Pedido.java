@@ -2,6 +2,7 @@ package datos;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Set;
 
 public class Pedido {
 
@@ -9,7 +10,7 @@ public class Pedido {
 	private UnidadVenta unidadVentaEntrega;
 	private Festival festivalPaso;
 	private LocalTime fechaTransaccion;
-	private List<DetallePedido> detalles;
+	private Set<DetallePedido> detalles;
 
 	public Pedido() {}
 
@@ -51,11 +52,13 @@ public class Pedido {
 		this.fechaTransaccion = fechaTransaccion;
 	}
 
-	public List<DetallePedido> getDetalles() {
+	
+
+	public Set<DetallePedido> getDetalles() {
 		return detalles;
 	}
 
-	public void setDetalles(List<DetallePedido> detalles) {
+	public void setDetalles(Set<DetallePedido> detalles) {
 		this.detalles = detalles;
 	}
 
