@@ -2,14 +2,14 @@ package dao;
 
 import java.util.List;
 
-import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import datos.Pedido;
+import datos.DetallePedido;
+import datos.Plato;
 
-public class PedidoDao {
+public class DetallePedidoDao {
 
 	private static Session session;
 	private Transaction tx;
@@ -24,7 +24,7 @@ public class PedidoDao {
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
 
-	public int agregar(Pedido objeto) {
+	public int agregar(DetallePedido objeto) {
 		int id = 0;
 		try {
 			iniciaOperacion();
@@ -39,7 +39,7 @@ public class PedidoDao {
 		return id;
 	}
 
-	public void actualizar(Pedido objeto) {
+	public void actualizar(DetallePedido objeto) {
 		try {
 			iniciaOperacion();
 			session.update(objeto);
@@ -52,7 +52,7 @@ public class PedidoDao {
 		}
 	}
 
-	public void eliminar(Pedido objeto) {
+	public void eliminar(DetallePedido objeto) {
 		try {
 			iniciaOperacion();
 			session.delete(objeto);
@@ -65,39 +65,39 @@ public class PedidoDao {
 		}
 	}
 
-	public Pedido traer(long idPedido) {
-		Pedido objeto = null;
+	public DetallePedido traer(long idDetallePedido) {
+		DetallePedido objeto = null;
 		try {
 			iniciaOperacion();
-			objeto = (Pedido) session.get(Pedido.class, idPedido);
+			objeto = (DetallePedido) session.get(DetallePedido.class, idDetallePedido);
 		} finally {
 			session.close();
 		}
 		return objeto;
 	}
 
-	public List<Pedido> traer() throws HibernateException {
-		List<Pedido> lista = null;
+	public List<DetallePedido> traer() throws HibernateException {
+		List<DetallePedido> lista = null;
 		try {
 			iniciaOperacion();
-			lista = session.createQuery("from Pedido p order by p.idPedido asc", Pedido.class).getResultList();
+			lista = session.createQuery("from DetallePedido d", DetallePedido.class).getResultList();
 		} finally {
 			session.close();
 		}
 		return lista;
 	}
 
-	// Caso de uso de ejemplo (Uno a Muchos): Pedido + sus DetallePedido (platos y cantidades)
-	public Pedido traerPedidoYDetalles(long idPedido) throws HibernateException {
-		Pedido objeto = null;
+	// Caso de uso de ejemplo (Muchos a Muchos via DetallePedido): en qué pedidos aparece un Plato dado
+	public List<DetallePedido> traer(Plato plato) {
+		List<DetallePedido> lista = null;
 		try {
 			iniciaOperacion();
-			String hql = "from Pedido p where p.idPedido=:idPedido";
-			objeto = (Pedido) session.createQuery(hql).setParameter("idPedido", idPedido).uniqueResult();
-			Hibernate.initialize(objeto.getDetalles());
+			String hql = "from DetallePedido d inner join fetch d.pedido where d.plato.idPlato=:idPlato";
+			lista = session.createQuery(hql, DetallePedido.class).setParameter("idPlato", plato.getIdPlato())
+					.getResultList();
 		} finally {
 			session.close();
 		}
-		return objeto;
+		return lista;
 	}
 }

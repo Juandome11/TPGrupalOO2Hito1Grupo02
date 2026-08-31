@@ -20,5 +20,6 @@
       <mapping resource="mapeos/Staff.hbm.xml"/>
       <mapping resource="mapeos/Plato.hbm.xml"/>
       <mapping resource="mapeos/Pedido.hbm.xml"/>
+      <mapping resource="mapeos/DetallePedido.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

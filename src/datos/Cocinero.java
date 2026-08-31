@@ -14,6 +14,7 @@ public class Cocinero extends Staff {
 			LocalDate fechaIngreso, long sueldoBase, String especialidad, String certificado, int bonus) {
 		super(nombre, apellido, dni, fechaNacimiento, fechaIngreso, sueldoBase);
 		this.especialidad = especialidad;
+		this.certificado = certificado;
 		this.bonus = bonus;
 	}
 

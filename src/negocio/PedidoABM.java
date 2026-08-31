@@ -34,6 +34,6 @@ public class PedidoABM {
 	}
 
 	public Pedido traerPedidoYDetalles(long idPedido) {
-		return dao.traerPedidoYPlatos(idPedido);
+		return dao.traerPedidoYDetalles(idPedido);
 	}
 }

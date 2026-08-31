@@ -15,9 +15,9 @@
         <many-to-one name="festivalPaso" class="datos.Festival" column="idFestivalPaso" not-null="true"/>
 
         <!-- Uno a Muchos: un Pedido tiene muchos DetallePedido (resuelve la M:N Plato-Pedido) -->
-        <set table="detallepedido" name="Platos" outer-join="true">
-                <key column="idPedido"/>
-                <many-to-many column="idPlato" class="datos.Plato"/>
+        <set name="detalles" table="detallePedido" inverse="true" lazy="true" fetch="select">
+            <key column="idPedido"/>
+            <one-to-many class="datos.DetallePedido"/>
         </set>
     </class>
 </hibernate-mapping>

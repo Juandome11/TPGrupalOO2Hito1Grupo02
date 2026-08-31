@@ -14,9 +14,11 @@
         <property name="costoProd" column="costoProd" type="long" not-null="true"/>
 
         <!-- Uno a Muchos: un Plato aparece en muchos DetallePedido (resuelve la M:N Plato-Pedido) -->
-        <set table="detallepedido" name="pedidos" outer-join="true">
-                <key column="idPlato"/>
-                <many-to-many column="idPedido" class="datos.Pedido"/>
+        <set name="detalles" table="detallePedido" inverse="true" lazy="true" fetch="select">
+            <key column="idPlato"/>
+            <one-to-many class="datos.DetallePedido"/>
         </set>
+        <many-to-one name="unidadVenta" class="datos.UnidadVenta" column="idUnidadVenta"
+not-null="true"/>
     </class>
 </hibernate-mapping>
