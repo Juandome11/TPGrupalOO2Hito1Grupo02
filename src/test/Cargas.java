@@ -27,7 +27,7 @@ public class Cargas {
 		PlatoABM abmp = new PlatoABM();
 		PedidoABM abmpe= new PedidoABM();
 		
-		/*
+		
 		Festival f1 = new Festival("Inicio de otoño","Otoño",LocalDate.of(2026, 03, 10),LocalDate.of(2026, 03, 16));
 		Festival f2 = new Festival("Revolucion Fest","Otoño",LocalDate.of(2026, 05, 23),LocalDate.of(2026, 05, 28));
 		Festival f3 = new Festival("Solsticio de invierno","Invierno",LocalDate.of(2026, 07, 10),LocalDate.of(2026, 07, 16));
@@ -38,7 +38,7 @@ public class Cargas {
 		Festival f8 = new Festival("Vacaciones","Verano",LocalDate.of(2026, 12, 10),LocalDate.of(2026, 12, 28));
 		Festival f9 = new Festival("Año nuevo","Verano",LocalDate.of(2027, 01, 05),LocalDate.of(2026, 01, 15));
 		Festival f10 = new Festival("Marzo fest","Verano",LocalDate.of(2026, 03, 8),LocalDate.of(2026, 03, 18));
-		System.out.print(f1.toString());
+		
 		abmf.agregar(f1);
 		abmf.agregar(f2);
 		abmf.agregar(f3);
@@ -76,20 +76,21 @@ public class Cargas {
 		
 		Festival fe1 = abmf.traer(1);
 		//System.out.print(fe1.toString());
-		Staff c1 = abms.traer(1);
+		Staff co2 = abms.traer(1);
 		System.out.print(c1.toString());
-		FoodTrack f1 = new FoodTrack("El gordo mario", "d1", 200, c1, "Fkaeh123", fe1,"aeh123");
-		Desarmable d1 = new Desarmable("Lo de carlitos","d2",300,c1,"DES3120",fe1,3,120);
+		FoodTrack ft1 = new FoodTrack("El gordo mario", "d1", 200, co2, "Fkaeh123", fe1,"aeh123");
+		Desarmable d1 = new Desarmable("Lo de carlitos","d2",300,co2,"DES3120",fe1,3,120);
 		abmu.agregar(d1);
-		*/
-		/*
-		Cocinero c1 = new Cocinero("agustin", "pereyra", "9112345", LocalDate.of(1989, 10, 27), LocalDate.of(2021, 9, 13), 930000, "comida italiana", "italian academy", 300000);
-		abms.agregar(c1);
-		*/
+		abmu.agregar(ft1);
+		
+		
+		Cocinero co1 = new Cocinero("agustin", "pereyra", "9112345", LocalDate.of(1989, 10, 27), LocalDate.of(2021, 9, 13), 930000, "comida italiana", "italian academy", 300000);
+		abms.agregar(co1);
+		
 		UnidadVenta uni = abmu.traer(1);
 		//System.out.print(u.toString());
 		Plato p1 = new Plato("Pizza mozzarella", 20000, 5000,uni);
-		//abmp.agregar(p1);
+		abmp.agregar(p1);
 		abmf.traer(1);
 		Pedido nPedido = new Pedido(abmu.traer(1), "fk0824", abmf.traer(1), LocalTime.now());
 		nPedido.agregar(abmp.traer(1));
