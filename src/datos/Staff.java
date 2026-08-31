@@ -12,7 +12,7 @@ public abstract class Staff {
 	protected LocalDate fechaNacimiento;
 	protected LocalDate fechaIngreso;
 	protected long sueldoBase;
-
+	protected boolean encargado;
 	public Staff() {}
 
 	public Staff(String nombre, String apellido, String dni,LocalDate fechaNacimiento,
@@ -24,6 +24,7 @@ public abstract class Staff {
 		this.fechaNacimiento = fechaNacimiento;
 		this.fechaIngreso = fechaIngreso;
 		this.sueldoBase = sueldoBase;
+		this.encargado = false;
 	}
 
 	public long getIdStaff() {
@@ -89,6 +90,16 @@ public abstract class Staff {
 	public void setSueldoBase(long sueldoBase) {
 		this.sueldoBase = sueldoBase;
 	}
+	
+	
+
+	public boolean isEncargado() {
+		return encargado;
+	}
+
+	public void setEncargado(boolean encargado) {
+		this.encargado = encargado;
+	}
 
 	// Pendiente implementar lógica de negocio
 	public Long antiguedad() {
@@ -127,6 +138,7 @@ public abstract class Staff {
 		
 		return edad;
 	}
+	
 
 	@Override
 	public String toString() {

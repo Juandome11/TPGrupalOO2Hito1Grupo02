@@ -88,13 +88,13 @@ public class PedidoDao {
 	}
 
 	// Caso de uso de ejemplo (Uno a Muchos): Pedido + sus DetallePedido (platos y cantidades)
-	public Pedido traerPedidoYDetalles(long idPedido) throws HibernateException {
+	public Pedido traerPedidoYPlatos(long idPedido) throws HibernateException {
 		Pedido objeto = null;
 		try {
 			iniciaOperacion();
 			String hql = "from Pedido p where p.idPedido=:idPedido";
 			objeto = (Pedido) session.createQuery(hql).setParameter("idPedido", idPedido).uniqueResult();
-			Hibernate.initialize(objeto.getDetalles());
+			Hibernate.initialize(objeto.getPlatos());
 		} finally {
 			session.close();
 		}

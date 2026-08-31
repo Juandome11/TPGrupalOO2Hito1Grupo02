@@ -74,7 +74,16 @@ public class UnidadVentaDao {
 		}
 		return objeto;
 	}
-
+	public UnidadVenta traer(String codigo) {
+		UnidadVenta objeto = null;
+		try {
+			iniciaOperacion();
+			objeto = (UnidadVenta) session.createQuery("from UnidadVenta u where u.codigo=:codigo").setParameter("codigo", codigo).uniqueResult();
+		} finally {
+			session.close();
+		}
+		return objeto;
+	}
 	// Caso de uso de ejemplo (Herencia): consulta polimórfica, trae FoodTrack y Desarmable mezclados
 	public List<UnidadVenta> traer() throws HibernateException {
 		List<UnidadVenta> lista = null;

@@ -9,15 +9,19 @@ public class Plato {
 	private String nombre;
 	private long precio;
 	private long costoProd;
-	private Set<DetallePedido> detalles;
+	private UnidadVenta unidadVenta;
+	private Set<Pedido> pedidos;
 
 	public Plato() {}
 
-	public Plato(String nombre, long precio, long costoProd) {
+	public Plato(String nombre, long precio, long costoProd, UnidadVenta unidadVenta) {
+		super();
 		this.nombre = nombre;
 		this.precio = precio;
 		this.costoProd = costoProd;
+		this.unidadVenta = unidadVenta;
 	}
+
 
 	public long getIdPlato() {
 		return idPlato;
@@ -52,13 +56,22 @@ public class Plato {
 	}
 
 
-
-	public Set<DetallePedido> getDetalles() {
-		return detalles;
+	public UnidadVenta getUnidadVenta() {
+		return unidadVenta;
 	}
 
-	public void setDetalles(Set<DetallePedido> detalles) {
-		this.detalles = detalles;
+	public void setUnidadVenta(UnidadVenta unidadVenta) {
+		this.unidadVenta = unidadVenta;
+	}
+
+	
+
+	public Set<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(Set<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 	@Override
