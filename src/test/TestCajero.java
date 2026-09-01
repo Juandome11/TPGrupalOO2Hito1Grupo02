@@ -15,10 +15,14 @@ public class TestCajero {
 		Cajero cajero1 = new Cajero("Perez", "Juan", "22222222", LocalDate.of(1997, 5, 14),
 				LocalDate.of(2025, 7, 9), 500000, "tarde", 5);
 
+		try {
 		int idCajero = staffABM.agregar(cajero);
 		System.out.println("Cajero creado, id=" + idCajero);
 		
 		int idCajero1 = staffABM.agregar(cajero1);
 		System.out.println("Cajero creado, id=" + idCajero1);
+		}catch(Exception e) {
+			System.out.println("No se pudo agregar al cajero:" + e.getMessage());
+		}
 	}
 }

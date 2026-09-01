@@ -102,7 +102,7 @@ public class StaffDao {
 	}
 	
 
-	public List<Cajero> traerCajerosTurnoManiana(String turno) throws HibernateException {
+	public List<Cajero> traerCajerosPorTurno(String turno) throws HibernateException {
 		List<Cajero> lista = null;
 		try {
 			iniciaOperacion();
