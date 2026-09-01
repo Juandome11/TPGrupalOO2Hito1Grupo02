@@ -282,14 +282,11 @@ CREATE TABLE `unidadventa` (
   `lugar` varchar(255) NOT NULL,
   `superficie` bigint NOT NULL,
   `codigo` varchar(10) NOT NULL,
-  `idResponsableCargo` bigint NOT NULL,
   `idFestival` bigint NOT NULL,
   PRIMARY KEY (`idUnidadVenta`),
   UNIQUE KEY `UK_7jipfbqbg1vd3olsxde3os027` (`codigo`),
-  KEY `FKidx2lbdo7xd3h5mhqtgyxmety` (`idResponsableCargo`),
   KEY `FK4qdwc6kjen1d65pu4td6i8907` (`idFestival`),
-  CONSTRAINT `FK4qdwc6kjen1d65pu4td6i8907` FOREIGN KEY (`idFestival`) REFERENCES `festival` (`idFestival`),
-  CONSTRAINT `FKidx2lbdo7xd3h5mhqtgyxmety` FOREIGN KEY (`idResponsableCargo`) REFERENCES `staff` (`idStaff`)
+  CONSTRAINT `FK4qdwc6kjen1d65pu4td6i8907` FOREIGN KEY (`idFestival`) REFERENCES `festival` (`idFestival`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
