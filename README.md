@@ -19,4 +19,4 @@ Sistema para el centro de convenciones "Epicentro Gourmet": gestión de festival
 
 | Fecha | Caso de uso | Responsable |
 |---|---|---|
-|  |  |  |
+| 01/09/2026 | Staff (Cocinero/Cajero) de una UnidadVenta puntual con edad mínima por parámetro (Herencia + Uno a Muchos) | Juan Domenighetti |
