@@ -21,18 +21,26 @@ public class StaffABM {
 	}
 
 	public int agregar(Staff s) {
-		// Pendiente implementar lógica de negocio (validarEdad antes de guardar)
+		
+		if(dao.traer(s.getDni())!=null){
+			throw new UnsupportedOperationException("Dni cargado");
+		}
+		
 		return dao.agregar(s);
 	}
 
 	public void modificar(Staff s) {
-		// Pendiente implementar lógica de negocio
+		if(dao.traer(s.getDni())==null){
+			throw new UnsupportedOperationException("La Persona no Existe");
+		}
 		dao.actualizar(s);
 	}
 
-	public void eliminar(long idStaff) {
-		// Pendiente implementar lógica de negocio
-		Staff s = dao.traer(idStaff);
+	public void eliminar(String dni) {
+		if(dao.traer(dni)==null){
+			throw new UnsupportedOperationException("La Persona no Existe");
+		}
+		Staff s = dao.traer(dni);
 		dao.eliminar(s);
 	}
 

@@ -22,6 +22,7 @@
             <key column="idStaff"/>
             <property name="especialidad" column="especialidad" type="string" not-null="true"/>
             <property name="certificado" column="certificado" type="string" not-null="false"/>
+            <property name="bonus" column="bonus" type="int" not-null="false"/>
         </joined-subclass>
 
         <joined-subclass name="datos.Cajero" table="cajero">

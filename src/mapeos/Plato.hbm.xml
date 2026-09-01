@@ -18,5 +18,7 @@
             <key column="idPlato"/>
             <one-to-many class="datos.DetallePedido"/>
         </set>
+        <many-to-one name="unidadVenta" class="datos.UnidadVenta" column="idUnidadVenta"
+not-null="true"/>
     </class>
 </hibernate-mapping>

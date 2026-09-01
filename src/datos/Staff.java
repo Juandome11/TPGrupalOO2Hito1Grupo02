@@ -12,18 +12,19 @@ public abstract class Staff {
 	protected LocalDate fechaNacimiento;
 	protected LocalDate fechaIngreso;
 	protected long sueldoBase;
-
+	protected boolean encargado;
 	public Staff() {}
 
-	public Staff(String nombre, String apellido, String dni, int edad, LocalDate fechaNacimiento,
+	public Staff(String nombre, String apellido, String dni,LocalDate fechaNacimiento,
 			LocalDate fechaIngreso, long sueldoBase) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.dni = dni;
-		this.edad = edad;
+		this.edad = validarEdad(fechaNacimiento);
 		this.fechaNacimiento = fechaNacimiento;
 		this.fechaIngreso = fechaIngreso;
 		this.sueldoBase = sueldoBase;
+		this.encargado = false;
 	}
 
 	public long getIdStaff() {
@@ -89,16 +90,55 @@ public abstract class Staff {
 	public void setSueldoBase(long sueldoBase) {
 		this.sueldoBase = sueldoBase;
 	}
+	
+	
+
+	public boolean isEncargado() {
+		return encargado;
+	}
+
+	public void setEncargado(boolean encargado) {
+		this.encargado = encargado;
+	}
 
 	// Pendiente implementar lógica de negocio
 	public Long antiguedad() {
 		throw new UnsupportedOperationException("Pendiente de implementar");
 	}
+	/*
 
 	// Pendiente implementar lógica de negocio (debe ser mayor de edad)
 	public boolean validarEdad() {
 		throw new UnsupportedOperationException("Pendiente de implementar");
 	}
+	*/
+	public int validarEdad(LocalDate fechaNacimiento) {
+		int edad = 0;
+		int aN,mN,dN,aA,mA,dA;
+		LocalDate fecha = LocalDate.now();
+		aN = fechaNacimiento.getYear();
+		mN = fechaNacimiento.getMonthValue();
+		dN = fechaNacimiento.getDayOfMonth();
+		aA = fecha.getYear();
+		mA = fecha.getMonthValue();
+		dA = fecha.getDayOfMonth();
+		edad= aA - aN;
+		
+		if(mN>mA) {
+			edad--;
+		}else {
+			if(mN==mA && dN>dA) {
+				edad--;
+			}
+		}
+		
+		if(edad<18) {
+			throw new UnsupportedOperationException("La persona es menor de edad");
+		}
+		
+		return edad;
+	}
+	
 
 	@Override
 	public String toString() {

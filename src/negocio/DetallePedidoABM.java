@@ -15,17 +15,27 @@ public class DetallePedidoABM {
 	}
 
 	public int agregar(DetallePedido d) {
-		// Pendiente implementar lógica de negocio
+		if(d.getPedido()== null) {
+			throw new UnsupportedOperationException("El pedido no existe");
+		}else {
+			if(d.getPlato()== null) {
+				throw new UnsupportedOperationException("El plato no existe");
+			}
+		}
 		return dao.agregar(d);
 	}
 
 	public void modificar(DetallePedido d) {
-		// Pendiente implementar lógica de negocio
+		if(dao.traer(d.getIdDetallePedido())== null) {
+			throw new UnsupportedOperationException("El detalle no existe en la base");
+		}
 		dao.actualizar(d);
 	}
 
 	public void eliminar(long idDetallePedido) {
-		// Pendiente implementar lógica de negocio
+		if(dao.traer(idDetallePedido)== null) {
+			throw new UnsupportedOperationException("El detalle no existe en la base");
+		}
 		DetallePedido d = dao.traer(idDetallePedido);
 		dao.eliminar(d);
 	}

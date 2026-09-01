@@ -14,17 +14,27 @@ public class PedidoABM {
 	}
 
 	public int agregar(Pedido p) {
-		// Pendiente implementar lógica de negocio
+		if(p.getFestivalPaso()== null) {
+			throw new UnsupportedOperationException("El Festival no existe");
+		}else {
+			if(p.getUnidadVentaEntrega()==null) {
+				throw new UnsupportedOperationException("La unidad de venta no existe");
+			}
+		}
 		return dao.agregar(p);
 	}
 
 	public void modificar(Pedido p) {
-		// Pendiente implementar lógica de negocio
+		if(dao.traer(p.getIdPedido())== null) {
+			throw new UnsupportedOperationException("El pedido no existe");
+		}
 		dao.actualizar(p);
 	}
 
 	public void eliminar(long idPedido) {
-		// Pendiente implementar lógica de negocio
+		if(dao.traer(idPedido)== null) {
+			throw new UnsupportedOperationException("El pedido no existe");
+		}
 		Pedido p = dao.traer(idPedido);
 		dao.eliminar(p);
 	}
@@ -34,6 +44,9 @@ public class PedidoABM {
 	}
 
 	public Pedido traerPedidoYDetalles(long idPedido) {
+		if(dao.traer(idPedido)== null) {
+			throw new UnsupportedOperationException("El pedido no existe");
+		}
 		return dao.traerPedidoYDetalles(idPedido);
 	}
 }

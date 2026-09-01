@@ -1,7 +1,7 @@
 package datos;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 public class Festival {
 
@@ -10,7 +10,7 @@ public class Festival {
 	private String temporada;
 	private LocalDate fechaInicio;
 	private LocalDate fechaFin;
-	private List<UnidadVenta> unidadesVenta;
+	private Set<UnidadVenta> unidadesVenta;
 
 	public Festival() {}
 
@@ -61,11 +61,13 @@ public class Festival {
 		this.fechaFin = fechaFin;
 	}
 
-	public List<UnidadVenta> getUnidadesVenta() {
+	
+
+	public Set<UnidadVenta> getUnidadesVenta() {
 		return unidadesVenta;
 	}
 
-	public void setUnidadesVenta(List<UnidadVenta> unidadesVenta) {
+	public void setUnidadesVenta(Set<UnidadVenta> unidadesVenta) {
 		this.unidadesVenta = unidadesVenta;
 	}
 
