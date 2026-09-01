@@ -48,7 +48,7 @@ public class StaffABM {
 		return dao.traer();
 	}
 	
-	public List<Cajero> traerCajerosTurnoManiana() {
-		return dao.traerCajerosTurnoManiana();
+	public List<Cajero> traerCajerosTurnoManiana(String turno) {
+		return dao.traerCajerosTurnoManiana(turno);
 	}
 }

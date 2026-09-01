@@ -102,12 +102,12 @@ public class StaffDao {
 	}
 	
 
-	public List<Cajero> traerCajerosTurnoManiana() throws HibernateException {
+	public List<Cajero> traerCajerosTurnoManiana(String turno) throws HibernateException {
 		List<Cajero> lista = null;
 		try {
 			iniciaOperacion();
 			lista = session.createQuery("from Cajero c where c.turno = :turno", Cajero.class)
-					.setParameter("turno", "mañana")
+					.setParameter("turno", turno)
 					.getResultList();
 		} finally {
 			session.close();
