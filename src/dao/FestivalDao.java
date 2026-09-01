@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import datos.Festival;
+import datos.Plato;
 
 public class FestivalDao {
 
@@ -100,5 +101,24 @@ public class FestivalDao {
 			session.close();
 		}
 		return objeto;
+	}
+	
+	public List<Plato> traerPlatosDeFestival(long idFestival) {
+
+	    List<Plato> platos = null;
+
+	    try {
+	        iniciaOperacion();
+	        
+	        String hql = "  select distinct p FROM Festival f inner join f.unidadesVenta u inner join u.platos p where f.id = :idFestival";
+	        platos = session.createQuery(hql, Plato.class)
+	                .setParameter("idFestival", idFestival)
+	                .getResultList();
+
+	    } finally {
+	        session.close();
+	    }
+
+	    return platos;
 	}
 }

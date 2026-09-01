@@ -1,7 +1,7 @@
 package test;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Set;
+
 
 import datos.Festival;
 import negocio.FestivalABM;
@@ -10,8 +10,6 @@ import datos.Cocinero;
 import datos.Desarmable;
 import negocio.StaffABM;
 import datos.FoodTrack;
-import datos.Staff;
-import datos.UnidadVenta;
 import negocio.UnidadVentaABM;
 import negocio.PlatoABM;
 import datos.Plato;
@@ -29,9 +27,10 @@ public class Cargas {
 		PlatoABM abmp = new PlatoABM();
 		PedidoABM abmpe= new PedidoABM();
 		DetallePedidoABM abmdp = new DetallePedidoABM();
-		
+	
 		
 		// Creo y agrego los festivales
+		
 		Festival f1 = new Festival("Inicio de otoño","Otoño",LocalDate.of(2026, 03, 10),LocalDate.of(2026, 03, 16));
 		Festival f2 = new Festival("Revolucion Fest","Otoño",LocalDate.of(2026, 05, 23),LocalDate.of(2026, 05, 28));
 		Festival f3 = new Festival("Solsticio de invierno","Invierno",LocalDate.of(2026, 07, 10),LocalDate.of(2026, 07, 16));
@@ -55,6 +54,7 @@ public class Cargas {
 		abmf.agregar(f10);
 		
 		//Creo y agrego los cajeros
+		
 		Cajero c1 = new Cajero("Hernan", "fernandez", "4667892" ,LocalDate.of(1990, 5, 15), LocalDate.of(2020, 8, 30), 900000, "tarde", 1);
 		Cajero c2 = new Cajero("lucia", "fernandez", "2345678", LocalDate.of(1988, 11, 22), LocalDate.of(2019, 3, 10), 850000, "mañana", 2);
 		Cajero c3 = new Cajero("martin", "gomez", "3456789", LocalDate.of(1995, 2, 8), LocalDate.of(2021, 6, 15), 920000, "noche", 3);
@@ -75,7 +75,9 @@ public class Cargas {
 		abms.agregar(c7);
 		abms.agregar(c8);
 		abms.agregar(c9);
+		
 		// Creo y agrego los cocineros
+		
 		Cocinero co1 = new Cocinero("Carlos", "Gómez", "30124567", LocalDate.of(1985, 3, 15), LocalDate.of(2018, 5, 10), 850000, "Pastas", "Chef Profesional", 80000);
 		Cocinero co2 = new Cocinero("María", "Fernández", "32256891", LocalDate.of(1988, 7, 22), LocalDate.of(2020, 2, 3), 780000, "Repostería", "Pastelería Profesional", 60000);
 		Cocinero co3 = new Cocinero("Julián", "Rodríguez", "28987453", LocalDate.of(1982, 11, 8), LocalDate.of(2015, 9, 17), 920000, "Carnes", "Chef Profesional", 100000);
@@ -97,34 +99,146 @@ public class Cargas {
 		abms.agregar(co9);
 		abms.agregar(co10);
 		
-		Festival fe1 = abmf.traer(1);
-		//System.out.print(fe1.toString());
+		// Creo los  FoodTrack
 		
-		FoodTrack ft1 = new FoodTrack("El gordo mario", "d1", 200, abms.traer(1), "Fkaeh123", fe1,"aeh123");
-		Desarmable d1 = new Desarmable("Lo de carlitos","d2",300,abms.traer(1),"DES3120",fe1,3,120);
-		abmu.agregar(d1);
+		FoodTrack ft0 = new FoodTrack("El gordo mario", "d1", 200, abms.traer(1), abmf.traer(5),"aeh133");
+		FoodTrack ft1 = new FoodTrack("La Pasta Loca", "A1", 12, abms.traer(2), abmf.traer(5), "AA123BC");
+		FoodTrack ft2 = new FoodTrack("Burger House", "A2", 15, abms.traer(2), abmf.traer(5), "AB456DE");
+		FoodTrack ft3 = new FoodTrack("Pizza Express", "A3", 10, abms.traer(4), abmf.traer(5), "AC789FG");
+		FoodTrack ft4 = new FoodTrack("El Buen Taco", "B1", 14, abms.traer(5), abmf.traer(5), "AD321HI");
+		FoodTrack ft5 = new FoodTrack("Sabores del Sur", "B2", 18, abms.traer(6), abmf.traer(5), "AE654JK");
+		FoodTrack ft6 = new FoodTrack("Dulce Tentación", "B3", 9, abms.traer(7), abmf.traer(5), "AF987LM");
+		FoodTrack ft7 = new FoodTrack("Parrilla Móvil", "C1", 20, abms.traer(8), abmf.traer(5), "AG147NP");
+		FoodTrack ft8 = new FoodTrack("Sushi Time", "C2", 11, abms.traer(9), abmf.traer(5), "AH258QR");
+		FoodTrack ft9 = new FoodTrack("Rincón Vegano", "C3", 13, abms.traer(10), abmf.traer(5), "AI369ST");
+		FoodTrack ft10 = new FoodTrack("Café Rodante", "D1", 8, abms.traer(11), abmf.traer(5), "AJ741UV");
+		abmu.agregar(ft0);
 		abmu.agregar(ft1);
+		abmu.agregar(ft2);
+		abmu.agregar(ft3);
+		abmu.agregar(ft4);
+		abmu.agregar(ft5);
+		abmu.agregar(ft6);
+		abmu.agregar(ft7);
+		abmu.agregar(ft8);
+		abmu.agregar(ft9);
+		abmu.agregar(ft10);
 		
-		/*
-		Cocinero co1 = new Cocinero("agustin", "pereyra", "9112345", LocalDate.of(1989, 10, 27), LocalDate.of(2021, 9, 13), 930000, "comida italiana", "italian academy", 300000);
-		abms.agregar(co1);
-		*/
+		//Cargo los Desarmables
 		
-		UnidadVenta uni = abmu.traer(1);
-		//System.out.print(u.toString());
-		Plato p1 = new Plato("Pizza mozzarella", 20000, 5000,uni);
+		Desarmable d1 = new Desarmable("Puesto de Empanadas", "A1", 8, abms.traer(1), abmf.traer(5), 1, 20);
+		Desarmable d2 = new Desarmable("Puesto de Choripanes", "A2", 10, abms.traer(2), abmf.traer(5), 1, 25);
+		Desarmable d3 = new Desarmable("Puesto de Hamburguesas", "A3", 12, abms.traer(3), abmf.traer(5), 2, 35);
+		Desarmable d4 = new Desarmable("Puesto de Pizzas", "B1", 9, abms.traer(4), abmf.traer(5), 1, 30);
+		Desarmable d5 = new Desarmable("Puesto de Pastas", "B2", 14, abms.traer(5), abmf.traer(5), 2, 40);
+		Desarmable d6 = new Desarmable("Puesto de Tacos", "B3", 11, abms.traer(6), abmf.traer(5), 1, 25);
+		Desarmable d7 = new Desarmable("Puesto de Parrilla", "C1", 16, abms.traer(7), abmf.traer(5), 2, 45);
+		Desarmable d8 = new Desarmable("Puesto de Sushi", "C2", 10, abms.traer(8), abmf.traer(5), 1, 35);
+		Desarmable d9 = new Desarmable("Puesto Vegano", "C3", 13, abms.traer(9), abmf.traer(5), 2, 40);
+		Desarmable d10 = new Desarmable("Puesto de Postres", "D1", 7, abms.traer(10), abmf.traer(5), 1, 20);
+		abmu.agregar(d1);
+		abmu.agregar(d2);
+		abmu.agregar(d3);
+		abmu.agregar(d4);
+		abmu.agregar(d5);
+		abmu.agregar(d6);
+		abmu.agregar(d7);
+		abmu.agregar(d8);
+		abmu.agregar(d9);
+		abmu.agregar(d10);
+		
+		// Creo los Platos
+		
+	    Plato p0 = new Plato("Pizza mozzarella", 20000, 5000,abmu.traer(1));
+		Plato p1 = new Plato("Ravioles con Salsa", 8500, 3200, abmu.traer(1));
+		Plato p2 = new Plato("Hamburguesa Completa", 9500, 3800, abmu.traer(1));
+		Plato p3 = new Plato("Pizza Muzzarella", 9000, 3500, abmu.traer(1));
+		Plato p4 = new Plato("Empanadas de Carne", 6500, 2500, abmu.traer(1));
+		Plato p5 = new Plato("Pollo al Horno con Papas", 11000, 4500, abmu.traer(1));
+		Plato p6 = new Plato("Tacos de Carne", 8000, 3000, abmu.traer(1));
+		Plato p7 = new Plato("Sushi Variado", 12500, 5500, abmu.traer(1));
+		Plato p8 = new Plato("Choripán Completo", 7000, 2800,abmu.traer(1));
+		Plato p9 = new Plato("Ensalada César", 7500, 2700, abmu.traer(1));
+		Plato p10 = new Plato("Brownie con Helado", 6000, 2200, abmu.traer(1));
+		abmp.agregar(p0);
 		abmp.agregar(p1);
-		abmf.traer(1);
-				
-		Pedido nPedido = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.now());
-			
-		abmpe.agregar(nPedido);
-				
-		DetallePedido dp = new DetallePedido(abmpe.traer(1),abmp.traer(1),3);
-		abmdp.agregar(dp);
+		abmp.agregar(p2);
+		abmp.agregar(p3);
+		abmp.agregar(p4);
+		abmp.agregar(p5);
+		abmp.agregar(p6);
+		abmp.agregar(p7);
+		abmp.agregar(p8);
+		abmp.agregar(p9);
+		abmp.agregar(p10);
 		
+		// Creol los Pedidos
 		
+		Pedido nP1 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(12, 30));
+		Pedido nP2 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(12, 45));
+		Pedido nP3 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(13, 10));
+		Pedido nP4 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(13, 25));
+		Pedido nP5 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(13, 40));
+		Pedido nP6 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(14, 00));
+		Pedido nP7 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(14, 20));
+		Pedido nP8 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(14, 35));
+		Pedido nP9 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(15, 00));
+		Pedido nP10 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(15, 20));
+		abmpe.agregar(nP1);
+		abmpe.agregar(nP2);
+		abmpe.agregar(nP3);
+		abmpe.agregar(nP4);
+		abmpe.agregar(nP5);
+		abmpe.agregar(nP6);
+		abmpe.agregar(nP7);
+		abmpe.agregar(nP8);
+		abmpe.agregar(nP9);
+		abmpe.agregar(nP10);
 		
+		// Agrego detallePedido
+		
+		DetallePedido dp1 = new DetallePedido(abmpe.traer(1), abmp.traer(1), 3);
+		DetallePedido dp2 = new DetallePedido(abmpe.traer(1), abmp.traer(4), 2);
+		DetallePedido dp3 = new DetallePedido(abmpe.traer(1), abmp.traer(7), 1);
+		DetallePedido dp4 = new DetallePedido(abmpe.traer(2), abmp.traer(2), 4);
+		DetallePedido dp5 = new DetallePedido(abmpe.traer(2), abmp.traer(8), 2);
+		DetallePedido dp6 = new DetallePedido(abmpe.traer(3), abmp.traer(3), 5);
+		DetallePedido dp7 = new DetallePedido(abmpe.traer(3), abmp.traer(6), 2);
+		DetallePedido dp8 = new DetallePedido(abmpe.traer(3), abmp.traer(10), 1);
+		DetallePedido dp9 = new DetallePedido(abmpe.traer(4), abmp.traer(1), 4);
+		DetallePedido dp10 = new DetallePedido(abmpe.traer(4), abmp.traer(5), 3);
+		DetallePedido dp11 = new DetallePedido(abmpe.traer(5), abmp.traer(4), 2);
+		DetallePedido dp12 = new DetallePedido(abmpe.traer(5), abmp.traer(9), 6);
+		DetallePedido dp13 = new DetallePedido(abmpe.traer(6), abmp.traer(2), 3);
+		DetallePedido dp14 = new DetallePedido(abmpe.traer(6), abmp.traer(7), 1);
+		DetallePedido dp15 = new DetallePedido(abmpe.traer(7), abmp.traer(3), 5);
+		DetallePedido dp16 = new DetallePedido(abmpe.traer(7), abmp.traer(8), 2);
+		DetallePedido dp17 = new DetallePedido(abmpe.traer(8), abmp.traer(6), 4);
+		DetallePedido dp18 = new DetallePedido(abmpe.traer(9), abmp.traer(10), 3);
+		DetallePedido dp19 = new DetallePedido(abmpe.traer(10), abmp.traer(5), 6);
+		DetallePedido dp20 = new DetallePedido(abmpe.traer(10), abmp.traer(9), 2);
+		abmdp.agregar(dp1);
+		abmdp.agregar(dp2);
+		abmdp.agregar(dp3);
+		abmdp.agregar(dp4);
+		abmdp.agregar(dp5);
+		abmdp.agregar(dp6);
+		abmdp.agregar(dp7);
+		abmdp.agregar(dp8);
+		abmdp.agregar(dp9);
+		abmdp.agregar(dp10);
+		abmdp.agregar(dp11);
+		abmdp.agregar(dp12);
+		abmdp.agregar(dp13);
+		abmdp.agregar(dp14);
+		abmdp.agregar(dp15);
+		abmdp.agregar(dp16);
+		abmdp.agregar(dp17);
+		abmdp.agregar(dp18);
+		abmdp.agregar(dp19);
+		abmdp.agregar(dp20);
+		
+	
 	}
 	
 }

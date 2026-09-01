@@ -15,6 +15,9 @@
         <property name="fechaFin" column="fechaFin" type="java.time.LocalDate" not-null="true"/>
 
         <!-- Uno a Muchos: un Festival tiene muchas UnidadVenta -->
-        
+        <set name="unidadesVenta" table="unidadVenta" order-by="idUnidadVenta asc" inverse="true" lazy="true" fetch="select">
+            <key column="idFestival" not-null="true"/>
+            <one-to-many class="datos.UnidadVenta"/>
+            </set>
     </class>
 </hibernate-mapping>

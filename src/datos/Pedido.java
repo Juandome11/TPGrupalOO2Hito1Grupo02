@@ -1,7 +1,6 @@
 package datos;
 
 import java.time.LocalTime;
-import java.util.List;
 import java.util.Set;
 
 public class Pedido {
