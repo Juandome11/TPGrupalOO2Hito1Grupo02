@@ -87,7 +87,7 @@ public class DetallePedidoDao {
 		return lista;
 	}
 
-	// Caso de uso de ejemplo (Muchos a Muchos via DetallePedido): en qué pedidos aparece un Plato dado
+	
 	public List<DetallePedido> traer(Plato plato) {
 		List<DetallePedido> lista = null;
 		try {

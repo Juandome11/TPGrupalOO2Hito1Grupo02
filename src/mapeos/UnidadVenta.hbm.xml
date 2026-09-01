@@ -12,7 +12,7 @@
         <property name="nombre" column="nombre" type="string" not-null="true"/>
         <property name="lugar" column="lugar" type="string" not-null="true"/>
         <property name="superficie" column="superficie" type="long" not-null="true"/>
-        <property name="codigo" column="codigo" type="string" length="10" unique="true" not-null="true"/>
+        <property name="codigo" column="codigo" type="string" length="15" unique="true" not-null="true"/>
         <many-to-one name="festival" class="datos.Festival" column="idFestival" not-null="true"/>
 
         

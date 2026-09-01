@@ -16,24 +16,25 @@ public class UnidadVentaABM {
 	
 	
 	public int agregar(UnidadVenta u) {
-		/*
+		
 		if(dao.traer(u.getCodigo())!=null){
-			throw new UnsupportedOperationException("Esta Unidad De venta ya Se encuentra cargada");
+			throw new UnsupportedOperationException("Esta unidad de venta  ya se encuentra cargada");
+			
 		}
-		*/
+		
 		return dao.agregar(u);
 	}
 
 	public void modificar(UnidadVenta u) {
 		if(dao.traer(u.getCodigo())==null){
-			throw new UnsupportedOperationException("Esta Unidad De venta No Existe");
+			throw new UnsupportedOperationException("Esta unidad de venta No Existe");
 		}
 		dao.actualizar(u);
 	}
 
 	public void eliminar(String codigo) {
 		if(dao.traer(codigo)==null){
-			throw new UnsupportedOperationException("Esta Unidad De venta No Existe");
+			throw new UnsupportedOperationException("Esta unidad de venta No Existe");
 		}
 		UnidadVenta u = dao.traer(codigo);
 		dao.eliminar(u);

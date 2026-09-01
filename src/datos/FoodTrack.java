@@ -8,9 +8,9 @@ public class FoodTrack extends UnidadVenta {
 
 	
 
-	public FoodTrack(String nombre, String lugar, long superficie, Staff encargado, String codigo, Festival festival,String patente) {
+	public FoodTrack(String nombre, String lugar, long superficie, Staff encargado, Festival festival,String patente) {
 		
-		super(nombre, lugar, superficie, encargado, codigo, festival);
+		super(nombre, lugar, superficie, encargado, "FT-"+patente+"-"+String.valueOf(festival.getIdFestival()), festival);
 		this.patente = patente;
 	}
 
