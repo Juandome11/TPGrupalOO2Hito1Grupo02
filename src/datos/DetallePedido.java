@@ -49,7 +49,12 @@ public class DetallePedido {
 
 	
 	public Long precioTotal() {
-		throw new UnsupportedOperationException("Pendiente de implementar");
+	    if (plato != null) {
+	        // Multiplica la cantidad por el precio (asumiendo que plato.getPrecio() retorna un tipo entero/long).
+	        return (long) cantPlato * plato.getPrecio(); 
+
+	    }
+	    return 0L;
 	}
 
 	@Override
