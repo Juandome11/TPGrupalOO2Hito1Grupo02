@@ -1,8 +1,5 @@
 package test;
 import java.time.LocalDate;
-import java.time.LocalTime;
-
-
 import datos.Festival;
 import negocio.FestivalABM;
 import datos.Cajero;
@@ -174,16 +171,16 @@ public class Cargas {
 		
 		// Creol los Pedidos
 		
-		Pedido nP1 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(12, 30));
-		Pedido nP2 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(12, 45));
-		Pedido nP3 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(13, 10));
-		Pedido nP4 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(13, 25));
-		Pedido nP5 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(13, 40));
-		Pedido nP6 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(14, 00));
-		Pedido nP7 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(14, 20));
-		Pedido nP8 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(14, 35));
-		Pedido nP9 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(15, 00));
-		Pedido nP10 = new Pedido(abmu.traer(1), abmf.traer(1), LocalTime.of(15, 20));
+		Pedido nP1 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP2 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP3 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP4 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP5 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP6 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP7 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP8 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP9 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
+		Pedido nP10 = new Pedido(abmu.traer(1), abmf.traer(1), LocalDate.of(2026, 9 ,21));
 		abmpe.agregar(nP1);
 		abmpe.agregar(nP2);
 		abmpe.agregar(nP3);
