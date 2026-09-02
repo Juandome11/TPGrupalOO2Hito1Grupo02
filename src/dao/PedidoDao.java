@@ -1,5 +1,6 @@
 package dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.hibernate.Hibernate;
@@ -23,7 +24,27 @@ public class PedidoDao {
 		tx.rollback();
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
-
+	public List<Pedido> traerPedidosFoodTrucksPorFechas(LocalDate desde, LocalDate hasta) {
+	    List<Pedido> lista = null;
+	    try {
+	        iniciaOperacion();
+	        // Se agrega "join fetch d.plato" para inicializar los precios de los platos antes de cerrar la sesión
+	        String hql = "select distinct p from Pedido p " +
+	                     "join fetch p.unidadVentaEntrega u " +
+	                     "join fetch p.detalles d " +
+	                     "join fetch d.plato " +
+	                     "where TYPE(u) = FoodTrack " +
+	                     "and p.fechaTransaccion between :desde and :hasta";
+	                     
+	        lista = session.createQuery(hql, Pedido.class)
+	                .setParameter("desde", desde)
+	                .setParameter("hasta", hasta)
+	                .getResultList();
+	    } finally {
+	        session.close();
+	    }
+	    return lista;
+	}
 	public int agregar(Pedido objeto) {
 		int id = 0;
 		try {
