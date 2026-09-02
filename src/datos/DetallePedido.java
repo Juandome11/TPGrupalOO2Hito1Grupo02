@@ -47,12 +47,9 @@ public class DetallePedido {
 		this.cantPlato = cantPlato;
 	}
 
+	
 	public Long precioTotal() {
-	    if (plato != null) {
-	        // Multiplica la cantidad por el precio (asumiendo que plato.getPrecio() retorna un tipo entero/long)
-	        return (long) cantPlato * plato.getPrecio(); 
-	    }
-	    return 0L;
+		throw new UnsupportedOperationException("Pendiente de implementar");
 	}
 
 	@Override

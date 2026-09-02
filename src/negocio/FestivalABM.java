@@ -1,11 +1,16 @@
 package negocio;
 
-import java.time.LocalDate;
-import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import dao.FestivalDao;
+import datos.Desarmable;
 import datos.Festival;
+import datos.FoodTrack;
 import datos.Plato;
+import datos.Staff;
+import datos.UnidadVenta;
 
 public class FestivalABM {
 
@@ -54,6 +59,47 @@ public class FestivalABM {
 		return dao.traerFestivalYUnidadesVenta(idFestival);
 	}
 	public List<Plato> traerPlatosDeFestival(long idFestival){
+		if(dao.traer(idFestival)== null) {
+			throw new UnsupportedOperationException("El Festival no existe en la base");
+		}
 		return dao.traerPlatosDeFestival(idFestival);
+	}
+	//Traer una lista de FoodTracks 
+	public List<FoodTrack> traerFoodTrackFestival(long idFestival){
+		Set<UnidadVenta> unidades = traerFestivalYUnidadesVenta(idFestival).getUnidadesVenta();
+		List<FoodTrack> foodTracks = new ArrayList<>();
+		for (UnidadVenta unidad : unidades) {
+		    if (unidad instanceof FoodTrack) {
+		        foodTracks.add((FoodTrack) unidad);
+		    }
+		}
+		return foodTracks;
+	}
+	//Traer una lista de Desarmables
+	public List<Desarmable> traerFoodDesarmableFestival(long idFestival){
+		Set<UnidadVenta> unidades = traerFestivalYUnidadesVenta(idFestival).getUnidadesVenta();
+		List<Desarmable> desarmables = new ArrayList<>();
+		for (UnidadVenta unidad : unidades) {
+		    if (unidad instanceof Desarmable) {
+		        desarmables.add((Desarmable) unidad);
+		    }
+		}
+		return desarmables;
+	}
+	// Pendiente a implementar
+	public List<Staff> traerEncargadosFestival(long idFestival){
+		if(dao.traer(idFestival)== null) {
+			throw new UnsupportedOperationException("El Festival no existe en la base");
+		}
+		return dao.traerEncargadosFestival(idFestival);
+	}
+	public UnidadVenta traerPorPatenteFestival(long idFestival,String patente) {
+		if(dao.traer(idFestival)== null) {
+			throw new UnsupportedOperationException("El Festival no existe en la base");
+		}
+		if(dao.traerPorPatenteFestival(idFestival, patente)== null) {
+			throw new UnsupportedOperationException("No esta registrada esa patente");
+		}
+		return dao.traerPorPatenteFestival(idFestival, patente);
 	}
 }
