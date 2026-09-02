@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import datos.Staff;
+import datos.Cajero;
 
 public class StaffDao {
 
@@ -93,6 +94,21 @@ public class StaffDao {
 		try {
 			iniciaOperacion();
 			lista = session.createQuery("from Staff s order by s.apellido asc, s.nombre asc", Staff.class)
+					.getResultList();
+		} finally {
+			session.close();
+		}
+		return lista;
+	}
+
+	
+
+	public List<Cajero> traerCajerosPorTurno(String turno) throws HibernateException {
+		List<Cajero> lista = null;
+		try {
+			iniciaOperacion();
+			lista = session.createQuery("from Cajero c where c.turno = :turno", Cajero.class)
+					.setParameter("turno", turno)
 					.getResultList();
 		} finally {
 			session.close();

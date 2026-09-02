@@ -2,8 +2,11 @@ package negocio;
 
 import java.util.List;
 
+
 import dao.StaffDao;
 import datos.Staff;
+import datos.Cajero;
+
 
 public class StaffABM {
 
@@ -44,8 +47,13 @@ public class StaffABM {
 	public List<Staff> traer() {
 		return dao.traer();
 	}
+	
+	public List<Cajero> traerCajerosPorTurno(String turno) {
+		return dao.traerCajerosPorTurno(turno);
+	}
 
 	public List<Staff> traerPorUnidadVentaYEdadMinima(long idUnidadVenta, int edadMinima) {
 		return dao.traerPorUnidadVentaYEdadMinima(idUnidadVenta, edadMinima);
+
 	}
 }
