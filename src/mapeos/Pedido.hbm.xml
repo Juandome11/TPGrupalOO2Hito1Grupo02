@@ -9,7 +9,7 @@
             <generator class="identity"/>
         </id>
 		<!-- Atributos - Columnas -->
-        <property name="fechaTransaccion" column="fechaTransaccion" type="java.time.LocalTime" not-null="true"/>
+        <property name="fechaTransaccion" column="fechaTransaccion" type="java.time.LocalDate" not-null="true"/>
 
         <many-to-one name="unidadVentaEntrega" class="datos.UnidadVenta" column="idUnidadVentaEntrega" not-null="true"/>
         <many-to-one name="festivalPaso" class="datos.Festival" column="idFestivalPaso" not-null="true"/>

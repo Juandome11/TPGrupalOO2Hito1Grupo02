@@ -1,6 +1,7 @@
 package datos;
 
-import java.time.LocalTime;
+import java.time.LocalDate;
+
 import java.util.Set;
 
 public class Pedido {
@@ -8,16 +9,21 @@ public class Pedido {
 	private long idPedido;
 	private UnidadVenta unidadVentaEntrega;
 	private Festival festivalPaso;
-	private LocalTime fechaTransaccion;
+	private LocalDate fechaTransaccion;
 	private Set<DetallePedido> detalles;
 
 	public Pedido() {}
 
-	public Pedido(UnidadVenta unidadVentaEntrega, Festival festivalPaso, LocalTime fechaTransaccion) {
+	
+
+	public Pedido(UnidadVenta unidadVentaEntrega, Festival festivalPaso, LocalDate fechaTransaccion) {
+		super();
 		this.unidadVentaEntrega = unidadVentaEntrega;
 		this.festivalPaso = festivalPaso;
 		this.fechaTransaccion = fechaTransaccion;
 	}
+
+
 
 	public long getIdPedido() {
 		return idPedido;
@@ -43,15 +49,17 @@ public class Pedido {
 		this.festivalPaso = festivalPaso;
 	}
 
-	public LocalTime getFechaTransaccion() {
+	public LocalDate getFechaTransaccion() {
 		return fechaTransaccion;
 	}
 
-	public void setFechaTransaccion(LocalTime fechaTransaccion) {
+
+
+	public void setFechaTransaccion(LocalDate fechaTransaccion) {
 		this.fechaTransaccion = fechaTransaccion;
 	}
 
-	
+
 
 	public Set<DetallePedido> getDetalles() {
 		return detalles;
