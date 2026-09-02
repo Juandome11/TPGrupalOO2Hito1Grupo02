@@ -1,5 +1,6 @@
 package negocio;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import dao.PedidoDao;
@@ -12,7 +13,21 @@ public class PedidoABM {
 	public Pedido traer(long idPedido) {
 		return dao.traer(idPedido);
 	}
+	// Caso de Uso: Calcula la recaudación total de los Food Trucks dentro de un período determinado
+	public long calcularRecaudacionFoodTrucksPorFechas(LocalDate desde, LocalDate hasta) {
+	    if (desde.isAfter(hasta)) {
+	        throw new IllegalArgumentException("La fecha 'desde' no puede ser posterior a 'hasta'");
+	    }
 
+	    List<Pedido> pedidos = dao.traerPedidosFoodTrucksPorFechas(desde, hasta);
+	    
+	    long totalRecaudado = 0;
+	    for (Pedido p : pedidos) {
+	        totalRecaudado += p.precioTotalPedido();
+	    }
+	    
+	    return totalRecaudado;
+	}
 	public int agregar(Pedido p) {
 		if(p.getFestivalPaso()== null) {
 			throw new UnsupportedOperationException("El Festival no existe");

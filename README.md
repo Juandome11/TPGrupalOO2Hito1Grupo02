@@ -19,4 +19,6 @@ Sistema para el centro de convenciones "Epicentro Gourmet": gestión de festival
 
 | Fecha | Caso de uso | Responsable |
 |---|---|---|
-|  |  |  |
+| 01/09/2026 | Staff (Cocinero/Cajero) de una UnidadVenta puntual con edad mínima por parámetro (Herencia + Uno a Muchos) | Juan Domenighetti |
+| 01/09/2026 | Traer cajeros de un turno determinado por parámetro (Herencia) | Nahuel Portel |
+| 01/09/2026 | Recaudación total de Food Trucks por rango de fechas (HQL + Lógica de Negocio) | Chaves Richart |
