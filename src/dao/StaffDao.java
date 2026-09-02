@@ -100,6 +100,7 @@ public class StaffDao {
 		}
 		return lista;
 	}
+
 	
 
 	public List<Cajero> traerCajerosPorTurno(String turno) throws HibernateException {
@@ -109,6 +110,23 @@ public class StaffDao {
 			lista = session.createQuery("from Cajero c where c.turno = :turno", Cajero.class)
 					.setParameter("turno", turno)
 					.getResultList();
+		} finally {
+			session.close();
+		}
+		return lista;
+	}
+
+	// Caso de uso (Herencia + Uno a Muchos): Staff (Cocinero/Cajero mezclados) de una UnidadVenta
+	// puntual, con edad mayor o igual a un mínimo dado por parámetro.
+	public List<Staff> traerPorUnidadVentaYEdadMinima(long idUnidadVenta, int edadMinima) throws HibernateException {
+		List<Staff> lista = null;
+		try {
+			iniciaOperacion();
+			String hql = "select s from UnidadVenta u join u.staff s "
+					+ "where u.idUnidadVenta=:idUnidadVenta and s.edad>=:edadMinima "
+					+ "order by s.apellido asc, s.nombre asc";
+			lista = session.createQuery(hql, Staff.class).setParameter("idUnidadVenta", idUnidadVenta)
+					.setParameter("edadMinima", edadMinima).getResultList();
 		} finally {
 			session.close();
 		}

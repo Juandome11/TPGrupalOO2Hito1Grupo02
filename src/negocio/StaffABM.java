@@ -51,4 +51,9 @@ public class StaffABM {
 	public List<Cajero> traerCajerosPorTurno(String turno) {
 		return dao.traerCajerosPorTurno(turno);
 	}
+
+	public List<Staff> traerPorUnidadVentaYEdadMinima(long idUnidadVenta, int edadMinima) {
+		return dao.traerPorUnidadVentaYEdadMinima(idUnidadVenta, edadMinima);
+
+	}
 }
