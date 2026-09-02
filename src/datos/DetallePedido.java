@@ -50,8 +50,9 @@ public class DetallePedido {
 	
 	public Long precioTotal() {
 	    if (plato != null) {
-	        // Multiplica la cantidad por el precio (asumiendo que plato.getPrecio() retorna un tipo entero/long)
+	        // Multiplica la cantidad por el precio (asumiendo que plato.getPrecio() retorna un tipo entero/long).
 	        return (long) cantPlato * plato.getPrecio(); 
+
 	    }
 	    return 0L;
 	}
