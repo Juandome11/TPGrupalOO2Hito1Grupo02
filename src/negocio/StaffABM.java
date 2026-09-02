@@ -44,4 +44,8 @@ public class StaffABM {
 	public List<Staff> traer() {
 		return dao.traer();
 	}
+
+	public List<Staff> traerPorUnidadVentaYEdadMinima(long idUnidadVenta, int edadMinima) {
+		return dao.traerPorUnidadVentaYEdadMinima(idUnidadVenta, edadMinima);
+	}
 }

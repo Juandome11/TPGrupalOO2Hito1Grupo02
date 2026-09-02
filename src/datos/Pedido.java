@@ -69,9 +69,14 @@ public class Pedido {
 		this.detalles = detalles;
 	}
 
-	// Pendiente implementar lógica de negocio
 	public long precioTotalPedido() {
-		throw new UnsupportedOperationException("Pendiente de implementar");
+	    long total = 0;
+	    if (detalles != null) {
+	        for (DetallePedido detalle : detalles) {
+	            total += detalle.precioTotal();
+	        }
+	    }
+	    return total;
 	}
 
 	@Override
