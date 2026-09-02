@@ -6,9 +6,10 @@ import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-
 import datos.Festival;
 import datos.Plato;
+import datos.Staff;
+import datos.UnidadVenta;
 
 public class FestivalDao {
 
@@ -102,7 +103,7 @@ public class FestivalDao {
 		}
 		return objeto;
 	}
-	
+	// Caso de uso Traer platos del festival
 	public List<Plato> traerPlatosDeFestival(long idFestival) {
 
 	    List<Plato> platos = null;
@@ -110,15 +111,37 @@ public class FestivalDao {
 	    try {
 	        iniciaOperacion();
 	        
-	        String hql = "  select distinct p FROM Festival f inner join f.unidadesVenta u inner join u.platos p where f.id = :idFestival";
-	        platos = session.createQuery(hql, Plato.class)
-	                .setParameter("idFestival", idFestival)
-	                .getResultList();
+	        String hql = "  select distinct p from Festival f inner join f.unidadesVenta u inner join u.platos p where f.id = :idFestival";
+	        platos = session.createQuery(hql, Plato.class).setParameter("idFestival", idFestival).getResultList();
 
 	    } finally {
 	        session.close();
 	    }
 
 	    return platos;
+	}
+	// Pendiente a implementar
+	public List<Staff> traerEncargadosFestival(long idFestival){
+		List<Staff> encargados = null;
+		try {
+			iniciaOperacion();
+			String hql = "  select distinct s from Festival f inner join f.unidadesVenta u inner join u.encargado s where f.id = :idFestival";
+			encargados = session.createQuery(hql, Staff.class).setParameter("idFestival", idFestival).getResultList();
+		}finally {
+			session.close();
+		}
+		return encargados;
+	}
+	// Traer un foodTrack por patente
+	public UnidadVenta traerPorPatenteFestival(long idFestival,String patente) {
+		UnidadVenta f1 =  null;
+		try {
+			iniciaOperacion();
+			String hql = "select u from Festival f join f.unidadesVenta u  where f.id = :idFestival and type(u) = FoodTrack and u.patente = :patente";
+			f1 = session.createQuery(hql, UnidadVenta.class).setParameter("idFestival", idFestival).setParameter("patente", patente).uniqueResult();
+}finally {
+			session.close();
+		}
+		return f1;
 	}
 }

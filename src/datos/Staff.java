@@ -101,17 +101,31 @@ public abstract class Staff {
 		this.encargado = encargado;
 	}
 
-	// Pendiente implementar lógica de negocio
+	
 	public Long antiguedad() {
-		throw new UnsupportedOperationException("Pendiente de implementar");
+		LocalDate fecha = LocalDate.now();
+		long tiempo = 0;
+		int aI,mI,dI,aA,mA,dA;
+	    aI = this.getFechaIngreso().getYear();
+		mI = this.getFechaIngreso().getMonthValue();
+		dI = this.getFechaIngreso().getDayOfMonth();
+		aA = fecha.getYear();
+		mA = fecha.getMonthValue();
+		dA = fecha.getDayOfMonth();
+		tiempo = aA - aI;
+		if(tiempo !=0) {
+			if(mI>mA){
+				tiempo--;
+		}else {
+			if(mI==mA && dI>dA) {
+				tiempo--;
+		  }
+		 }
+		}
+		
+		return tiempo;
 	}
-	/*
-
-	// Pendiente implementar lógica de negocio (debe ser mayor de edad)
-	public boolean validarEdad() {
-		throw new UnsupportedOperationException("Pendiente de implementar");
-	}
-	*/
+		
 	public int validarEdad(LocalDate fechaNacimiento) {
 		int edad = 0;
 		int aN,mN,dN,aA,mA,dA;
@@ -139,7 +153,6 @@ public abstract class Staff {
 		return edad;
 	}
 	
-
 	@Override
 	public String toString() {
 		return "Staff [idStaff=" + idStaff + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni

@@ -15,8 +15,6 @@ public class Desarmable extends UnidadVenta {
 		this.tiempoArmado = tiempoArmado;
 	}
 
-
-
 	public int getCantCarpas() {
 		return cantCarpas;
 	}

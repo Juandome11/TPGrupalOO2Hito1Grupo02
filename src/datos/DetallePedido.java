@@ -47,7 +47,7 @@ public class DetallePedido {
 		this.cantPlato = cantPlato;
 	}
 
-	// Pendiente implementar lógica de negocio
+	
 	public Long precioTotal() {
 		throw new UnsupportedOperationException("Pendiente de implementar");
 	}
